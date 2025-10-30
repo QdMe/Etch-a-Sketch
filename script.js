@@ -1,5 +1,3 @@
-const container = document.getElementById("container");
-
 // Setting a default number of boxes
 let numberOfBoxs = 16;
 
@@ -10,7 +8,7 @@ let buttonWasClicked = false;
 const btn = document.querySelector("button");
 btn.addEventListener("click", getUserInput);
 
-// Getting the user input and calling the draw function
+// Getting the user input and calling the draw function if button is clicked
 function getUserInput() {
   let input = prompt("");
   numberOfBoxs = input;
@@ -18,13 +16,23 @@ function getUserInput() {
   draw();
 }
 
-// Checking if the customize button was not clicked
+// Checking if the customize button was not clicked to create a default 16*16 canvas
 if (!buttonWasClicked) {
   draw();
 }
 
 function draw() {
-  console.log(numberOfBoxs);
+  // If btn was clicked, remove the default 16*16 sized canvas, and create a new one with the customized user input grid size
+  // Else, just create a canvas with the default 16*16 canvas size
+  if (buttonWasClicked) {
+    container.remove();
+    createBoxes();
+  } else {
+    createBoxes();
+  }
+}
+function createBoxes() {
+  createContainer();
   for (let i = 0; i < numberOfBoxs * numberOfBoxs; i++) {
     let box = document.createElement("div");
     box.style.width = (600 / numberOfBoxs).toString() + "px";
@@ -33,7 +41,13 @@ function draw() {
     container.appendChild(box);
   }
 }
-
 function changeColor(e) {
   e.target.style.background = "coral";
+}
+
+// Creating the canvas
+function createContainer() {
+  let container = document.createElement("div");
+  container.id = "container";
+  document.body.appendChild(container);
 }
