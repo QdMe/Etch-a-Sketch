@@ -10,7 +10,12 @@ btn.addEventListener("click", getUserInput);
 
 // Getting the user input and calling the draw function if button is clicked
 function getUserInput() {
-  let input = prompt("");
+  let input = prompt(
+    "Enter the number (between 1 and 100) of squares per side"
+  );
+  while (input > 100 || input < 1) {
+    input = prompt("Please enter a valid number");
+  }
   numberOfBoxs = input;
   buttonWasClicked = true;
   draw();
