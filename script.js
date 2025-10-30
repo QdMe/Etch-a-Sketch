@@ -10,9 +10,7 @@ btn.addEventListener("click", getUserInput);
 
 // Getting the user input and calling the draw function if button is clicked
 function getUserInput() {
-  let input = prompt(
-    "Enter the number (between 1 and 100) of squares per side"
-  );
+  let input = prompt("Enter a Number between 1 and 100:");
   while (input > 100 || input < 1) {
     input = prompt("Please enter a valid number");
   }
@@ -37,11 +35,12 @@ function draw() {
   }
 }
 function createBoxes() {
+  displayGridSize();
   createContainer();
   for (let i = 0; i < numberOfBoxs * numberOfBoxs; i++) {
     let box = document.createElement("div");
-    box.style.width = (600 / numberOfBoxs).toString() + "px";
-    box.style.height = (600 / numberOfBoxs).toString() + "px";
+    box.style.width = (580 / numberOfBoxs).toString() + "px";
+    box.style.height = (580 / numberOfBoxs).toString() + "px";
     box.addEventListener("mouseenter", changeColor);
     container.appendChild(box);
   }
@@ -55,4 +54,9 @@ function createContainer() {
   let container = document.createElement("div");
   container.id = "container";
   document.body.appendChild(container);
+}
+
+function displayGridSize() {
+  const girdSize = document.getElementById("grid-size");
+  girdSize.textContent = `${numberOfBoxs} X ${numberOfBoxs}`;
 }
