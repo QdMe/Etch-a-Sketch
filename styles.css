@@ -11,8 +11,8 @@ body {
 }
 #container {
   background-color: white;
-  width: 580px;
-  height: 580px;
+  width: 550px;
+  height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,20 +22,20 @@ button {
   width: 250px;
   height: 57px;
   font-weight: bold;
-  background-color: coral;
+  background-color: rgb(255, 127, 80);
   color: white;
   font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px;
 }
 #grid-size {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
 }

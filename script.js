@@ -1,6 +1,6 @@
 // Setting a default number of boxes
 let numberOfBoxs = 16;
-
+const CONTAINER_SIZE = 550;
 // A flag set to false so that the default numberOfBoxes is not set
 let buttonWasClicked = false;
 
@@ -34,21 +34,36 @@ function draw() {
     createBoxes();
   }
 }
+
 function createBoxes() {
   displayGridSize();
   createContainer();
   for (let i = 0; i < numberOfBoxs * numberOfBoxs; i++) {
     let box = document.createElement("div");
-    box.style.width = (580 / numberOfBoxs).toString() + "px";
-    box.style.height = (580 / numberOfBoxs).toString() + "px";
-    box.addEventListener("mouseenter", changeColor);
+    box.style.width = (CONTAINER_SIZE / numberOfBoxs).toString() + "px";
+    box.style.height = (CONTAINER_SIZE / numberOfBoxs).toString() + "px";
+    box.addEventListener("mouseenter", randomizeColor);
+    box.addEventListener("mouseenter", darken());
     container.appendChild(box);
   }
 }
 function changeColor(e) {
   e.target.style.background = "coral";
 }
+function randomizeColor(e) {
+  e.target.style.background = `rgb(${generateRandColor()},${generateRandColor()},${generateRandColor()})`;
+}
+function generateRandColor() {
+  return Math.floor(Math.random() * 256);
+}
 
+function darken() {
+  let oppacity = 0.1;
+  return function (e) {
+    oppacity += 0.1;
+    e.target.style.opacity = `${oppacity}`;
+  };
+}
 // Creating the canvas
 function createContainer() {
   let container = document.createElement("div");
