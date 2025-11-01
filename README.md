@@ -14,8 +14,3 @@ In this project I will attempt to create the "Etch-a-Sketch" game, using javascr
 See the website [Here](https://QdMe.github.io/Rock-Paper-Scissors/)
 * Print the overall winner and their scores
 
-## Acknowledgements
-
-This project is thanks to:
-
- * [The Odin Project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors)
